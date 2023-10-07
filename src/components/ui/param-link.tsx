@@ -3,9 +3,11 @@ import Link from "next/link";
 
 export default function ParamLink({
   link,
+  paramName,
   className,
 }: {
   link: { label: string; value: string };
+  paramName: string;
   className?: string;
 }) {
   return (
@@ -13,7 +15,7 @@ export default function ParamLink({
       <Link
         href={{
           query: {
-            topic: link.value,
+            [paramName]: link.value,
           },
         }}
       >
