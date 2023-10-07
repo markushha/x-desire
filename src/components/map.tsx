@@ -1,15 +1,13 @@
 import { useEffect, useRef, useMemo } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 
-const REACT_APP_GOOGLE_MAPS_KEY = "AIzaSyASO95vCcQNQrzr0lERusMhR62QUjEMxB0";
-
 function Map() {
   const mapRef = useRef(null);
   const geocoder = useMemo(() => new google.maps.Geocoder(), []);
 
   useEffect(() => {
     const loader = new Loader({
-      apiKey: REACT_APP_GOOGLE_MAPS_KEY,
+      apiKey: process.env.NEXT_PUBLIC_GOOGLEMAP_KEY!,
       version: "weekly",
     });
     loader.load().then(() => {

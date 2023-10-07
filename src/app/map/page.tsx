@@ -12,8 +12,6 @@ import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Map from "@/components/map";
 
-const REACT_APP_GOOGLE_MAPS_KEY = "AIzaSyASO95vCcQNQrzr0lERusMhR62QUjEMxB0";
-
 const configureSchema = Yup.object().shape({
   city: Yup.string().required("City is required"),
 });
@@ -35,7 +33,7 @@ export default function MapComponent({ selectedLocation }: MapComponentProps) {
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: REACT_APP_GOOGLE_MAPS_KEY,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLEMAP_KEY!,
   });
 
   return (
