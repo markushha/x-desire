@@ -16,5 +16,11 @@ export const getLanLonAPI = axios.create({
   baseURL: "https://maps.googleapis.com/maps/api/geocode/",
   params: {
     key: process.env.NEXT_PUBLIC_GOOGLEMAP_KEY,
-  }
+  },
+});
+
+/* API for Earth Search  */
+
+export const getEarthSearchAPI = axios.create({
+  baseURL: "https://cmr.earthdata.nasa.gov/search/",
 })
