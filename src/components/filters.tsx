@@ -128,7 +128,7 @@ export default function Filters({ topic }: { topic: string }) {
         <label>Filter by topics</label>
         <div className="flex flex-row mt-2">
           {topics.map((topic) => (
-            <ParamLink className="mr-2" key={topic.value} link={topic} />
+            <ParamLink className="mr-2" key={topic.value} link={topic} paramName='topic' />
           ))}
         </div>
       </div>
