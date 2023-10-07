@@ -41,22 +41,22 @@ export default function Map() {
       ref={mapRef}
     >
       <GoogleMap
-      id='rectangle-map'
-      mapContainerStyle={{ height: "400px", width: "800px" }}
-      zoom={4}
-      center={{ lat: (bounds.north + bounds.south) / 2, lng: (bounds.east + bounds.west) / 2 }}
-    >
-      <Rectangle
-        options={{
-          strokeColor: 'red',
-          strokeOpacity: 0.8,
-          strokeWeight: 10,
-          fillColor: 'red',
-          fillOpacity: 1,
-          bounds: googleBounds,
-        }}
-      />
-    </GoogleMap>
+        id='rectangle-map'
+        mapContainerStyle={{ height: "400px", width: "800px" }}
+        zoom={4}
+        center={{ lat: (bounds.north + bounds.south) / 2, lng: (bounds.east + bounds.west) / 2 }}
+      >
+        <Rectangle
+          options={{
+            strokeColor: 'red',
+            strokeOpacity: 0.8,
+            strokeWeight: 10,
+            fillColor: 'red',
+            fillOpacity: 1,
+            bounds: googleBounds,
+          }}
+        />
+      </GoogleMap>
     </div>
   );
 }
