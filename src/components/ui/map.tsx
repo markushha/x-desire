@@ -14,6 +14,15 @@ export default function Map() {
     granula.granula?.feed.entry[0].boxes!
   );
 
+  const center = useMemo(() => {
+    if (granulaCoords) {
+      return {
+        lat: parseInt(granulaCoords.maxLat) + parseInt(granulaCoords.minLat) / 2,
+        lng:parseInt( granulaCoords.maxLng) + parseInt(granulaCoords.minLng) / 2,
+      };
+    }
+  }, [granulaCoords]);
+
   const googleBounds = useMemo(() => {
     if (
       granulaCoords
@@ -30,12 +39,8 @@ export default function Map() {
 
   useEffect(() => {
     const map = new google.maps.Map(mapRef.current as any, {
-      center: { lat: coordinates.lat, lng: coordinates.lng },
+      center: center,
       zoom: 3,
-    });
-    new google.maps.Marker({
-      map: map,
-      position: { lat: coordinates.lat, lng: coordinates.lng },
     });
     new google.maps.Rectangle({
       map: map,
@@ -43,10 +48,10 @@ export default function Map() {
       fillColor: "red",
       fillOpacity: 0.1,
     });
-  }, [geocoder, coordinates, googleBounds]);
+  }, [geocoder, coordinates, googleBounds, center]);
 
   return (
-    <div className="w-full min-h-screen" ref={mapRef}>
+    <div className="w-full min-h-screen col-span-3" ref={mapRef}>
       <GoogleMap
         id="rectangle-map"
         mapContainerStyle={{ height: "400px", width: "100%" }}
