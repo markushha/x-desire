@@ -1,44 +1,25 @@
-"use client";
+import { Separator } from "@/components/ui/separator";
 
-import React, { useState, useRef, useCallback, useEffect } from "react";
-import {
-  GoogleMap,
-  useJsApiLoader,
-  useLoadScript,
-  MarkerF,
-  InfoWindowF,
-} from "@react-google-maps/api";
-import { Field, Form, Formik } from "formik";
-import * as Yup from "yup";
-import Map from "@/components/map";
+import MapComponent from "@/components/map";
+import PageDescription from "@/components/page-description";
+import Filters from "@/components/filters";
 
-const configureSchema = Yup.object().shape({
-  city: Yup.string().required("City is required"),
-});
-
-const mapContainerStyle = {
-  width: "100%",
-  height: "400px",
-};
-
-interface MapComponentProps {
-  selectedLocation: google.maps.LatLngLiteral;
-}
-
-export default function MapComponent({ selectedLocation }: MapComponentProps) {
-  const mapRef = useRef<google.maps.Map>();
-  const onMapLoad = useCallback((map: google.maps.Map) => {
-    mapRef.current = map;
-  }, []);
-
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLEMAP_KEY!,
-  });
-
+export default function MapPage() {
   return (
-    <div style={{ marginTop: "50px" }}>
-      {isLoaded && <Map />}
+    <div className="w-full min-h-screen flex flex-col items-center">
+      <div className="w-full my-8 flex flex-col px-4 md:px-8">
+        <PageDescription
+          className="w-full md:w-1/2"
+          title="X-Desire Map: Access Geological Data"
+          description="Search geological information using related topics by any location or coordinates. We use NASA Earthdata Search for accessing data."
+        />
+        <div className="flex flex-col w-full mt-8">
+          <label className="text-xl md:text-2xl font-semibold">Search</label>
+          <Separator className="my-4" />
+          <Filters />
+        </div>
+      </div>
+      <MapComponent />
     </div>
   );
 }

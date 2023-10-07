@@ -1,26 +1,14 @@
-import { useEffect, useRef, useMemo } from "react";
-import { Loader } from "@googlemaps/js-api-loader";
+"use client";
 
-function Map() {
-  const mapRef = useRef(null);
-  const geocoder = useMemo(() => new google.maps.Geocoder(), []);
+import { useJsApiLoader } from "@react-google-maps/api";
 
-  useEffect(() => {
-    const loader = new Loader({
-      apiKey: process.env.NEXT_PUBLIC_GOOGLEMAP_KEY!,
-      version: "weekly",
-    });
-    loader.load().then(() => {
-      const map = new google.maps.Map(mapRef.current as any, {
-        center: { lat: 43.229793548583984, lng: 76.91036224365234 },
-        zoom: 3,
-      });
-      const marker = new google.maps.Marker({
-        map: map,
-        position: { lat: 43.229793548583984, lng: 76.91036224365234 },
-      });
-    });
-  }, [geocoder]);
-  return <div className="w-full min-h-screen" style={{ height: "100vh" }} ref={mapRef} />;
+import Map from "@/components/ui/map";
+
+export default function MapComponent() {
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLEMAP_KEY!,
+  });
+
+  return isLoaded && <Map />;
 }
-export default Map;
