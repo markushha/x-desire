@@ -8,6 +8,7 @@ import { getLanLon } from "@/hooks/getLanLon";
 import { useCoordinates } from "@/store/coordinates";
 import { getEarthSearchAPI } from "@/api/client";
 import { useSearchParams } from "next/navigation";
+import { useGranula, Granula } from '@/store/granula';
 
 const topics = [
   {
@@ -26,6 +27,7 @@ const topics = [
 
 export default function Filters({ topic }: { topic: string }) {
   const coordinates = useCoordinates();
+  const granula = useGranula();
 
   const params = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
@@ -49,11 +51,17 @@ export default function Filters({ topic }: { topic: string }) {
   };
 
   const fetchGranula = async () => {
-    if (topic === "earthquakes") {
-      const res = await getEarthSearchAPI(
-        "/granules.json?echo_collection_id=C179001775-SEDAC"
-      );
-      console.log(res);
+    const currentTopic = topic ?? params.get('topic');
+    if (currentTopic === "earthquakes") {
+      try {
+        const res = await getEarthSearchAPI<Granula>(
+          "/granules.json?echo_collection_id=C179001775-SEDAC"
+        );
+
+        granula.setGranula(res.data);
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
@@ -98,7 +106,7 @@ export default function Filters({ topic }: { topic: string }) {
                 lat: e.target.value as any,
               })
             }
-            value={results?.lat}
+            value={results?.lat ?? 0}
             title="Latitude"
           />
           <Input
@@ -110,7 +118,7 @@ export default function Filters({ topic }: { topic: string }) {
                 lng: e.target.value as any,
               })
             }
-            value={results?.lng}
+            value={results?.lng ?? 0}
             title="Longitude"
           />
         </div>
