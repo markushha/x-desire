@@ -1,5 +1,11 @@
 import { create } from 'zustand'
 
+// "polygons": [
+//   [
+//     "50.712543 55.659523 57.842426 8.672903 37.11097 8.719166 32.045826 41.824383 50.712543 55.659523"
+//   ]
+// ],
+
 type Link = {
   inherited: boolean;
   rel: string;
@@ -8,7 +14,8 @@ type Link = {
 }
 
 type Entry = {
-  boxes: string[];
+  polygons?: Array<string[]>;
+  boxes?: string[];
   time_start: string;
   updated: string;
   dataset_id: string;

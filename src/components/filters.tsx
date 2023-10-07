@@ -9,21 +9,7 @@ import { useCoordinates } from "@/store/coordinates";
 import { getEarthSearchAPI } from "@/api/client";
 import { useSearchParams } from "next/navigation";
 import { useGranula, Granula } from "@/store/granula";
-
-const topics = [
-  {
-    label: "Earthquakes",
-    value: "earthquakes",
-  },
-  {
-    label: "Tsunamis",
-    value: "tsunamis",
-  },
-  {
-    label: "Atmosphere",
-    value: "atmoshpere",
-  },
-];
+import { topics } from '@/consts/topics';
 
 export default function Filters({ topic }: { topic: string }) {
   const coordinates = useCoordinates();
@@ -52,17 +38,17 @@ export default function Filters({ topic }: { topic: string }) {
 
   const fetchGranula = async () => {
     const currentTopic = topic ?? params.get("topic");
+    if (!currentTopic) return;
 
-    if (currentTopic === "earthquakes") {
-      try {
-        const res = await getEarthSearchAPI<Granula>(
-          "/granules.json?echo_collection_id=C179001775-SEDAC"
-        );
+    const topicData = topics.find((topic) => topic.value === currentTopic);
+    if (!topicData) return;
 
-        granula.setGranula(res.data);
-      } catch (err) {
-        console.log(err);
-      }
+    try {
+      const res = await getEarthSearchAPI<Granula>(topicData.granulaUrl);
+
+      granula.setGranula(res.data);
+    } catch (err) {
+      console.log(err);
     }
   };
 
