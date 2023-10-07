@@ -4,26 +4,30 @@ import { GoogleMap, RectangleF } from "@react-google-maps/api";
 import { useCoordinates } from "@/store/coordinates";
 import { useEffect, useRef, useMemo } from "react";
 import { useGranula } from "@/store/granula";
-import { extractCoordinatesFromBox } from "@/lib/coords";
+import { PolygonType, RectangleType, extractCoordinatesFromBox, extractCoordinatesFromPolygon } from "@/lib/coords";
 
 export default function Map() {
   const coordinates = useCoordinates();
   const granula = useGranula();
+  const isBox = granula.granula?.feed.entry[0].boxes ? true : false;
 
-  const granulaCoords = extractCoordinatesFromBox(
+  const granulaCoords = isBox ? extractCoordinatesFromBox(
     granula.granula?.feed.entry[0].boxes!
-  );
+  ) : extractCoordinatesFromPolygon(
+    granula.granula?.feed.entry[0].polygons!
+  )
 
   const googleBounds = useMemo(() => {
     if (
-      granulaCoords
+      granulaCoords && isBox
     ) {
+      const coords = granulaCoords as RectangleType;
       return new google.maps.LatLngBounds(
-        new google.maps.LatLng(parseInt(granulaCoords?.minLat), parseInt(granulaCoords?.maxLat)),
-        new google.maps.LatLng(parseInt(granulaCoords?.minLng), parseInt(granulaCoords?.maxLng as any))
+        new google.maps.LatLng(parseInt(coords?.minLat), parseInt(coords?.maxLat)),
+        new google.maps.LatLng(parseInt(coords?.minLng), parseInt(coords?.maxLng as any))
       );
     }
-  }, [granulaCoords]);
+  }, [granulaCoords, isBox]);
 
   const mapRef = useRef(null);
   const geocoder = useMemo(() => new google.maps.Geocoder(), []);
@@ -37,13 +41,22 @@ export default function Map() {
       map: map,
       position: { lat: coordinates.lat, lng: coordinates.lng },
     });
-    new google.maps.Rectangle({
-      map: map,
-      bounds: googleBounds,
-      fillColor: "red",
-      fillOpacity: 0.1,
-    });
-  }, [geocoder, coordinates, googleBounds]);
+    if (isBox) {
+      new google.maps.Rectangle({
+        map: map,
+        bounds: googleBounds as google.maps.LatLngBounds,
+        fillColor: "red",
+        fillOpacity: 0.1,
+      });
+    } else {
+      new google.maps.Polygon({
+        map: map,
+        paths: granulaCoords as PolygonType,
+        fillColor: "red",
+        fillOpacity: 0.1,
+      })      
+    }
+  }, [geocoder, coordinates, googleBounds, granulaCoords, isBox]);
 
   return (
     <div className="w-full min-h-screen" ref={mapRef}>
