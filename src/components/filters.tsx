@@ -8,7 +8,7 @@ import { getLanLon } from "@/hooks/getLanLon";
 import { useCoordinates } from "@/store/coordinates";
 import { getEarthSearchAPI } from "@/api/client";
 import { useSearchParams } from "next/navigation";
-import { useGranula, Granula } from '@/store/granula';
+import { useGranula, Granula } from "@/store/granula";
 
 const topics = [
   {
@@ -51,7 +51,8 @@ export default function Filters({ topic }: { topic: string }) {
   };
 
   const fetchGranula = async () => {
-    const currentTopic = topic ?? params.get('topic');
+    const currentTopic = topic ?? params.get("topic");
+
     if (currentTopic === "earthquakes") {
       try {
         const res = await getEarthSearchAPI<Granula>(
