@@ -5,6 +5,9 @@ import ParamLink from "@/components/ui/param-link";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import { getLanLon } from "@/hooks/getLanLon";
+import { useCoordinates } from "@/store/coordinates";
+import { getEarthSearchAPI } from "@/api/client";
+import { useSearchParams } from "next/navigation";
 
 const topics = [
   {
@@ -21,25 +24,49 @@ const topics = [
   },
 ];
 
-export default function Filters() {
+export default function Filters({ topic }: { topic: string }) {
+  const coordinates = useCoordinates();
+
+  const params = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState<string | null>(null);
 
   const [location, setLocation] = useState("");
   const [results, setResults] = useState<{ lat: number; lng: number }>();
 
   const onLocationSubmit = () => {
     if (!location.trim()) {
-      // return setError("Please enter a location");
       return;
     }
 
     setIsLoading(true);
     getLanLon(location)
-      .then((res) => setResults(res as any))
+      .then((res) => {
+        setResults(res as any);
+        coordinates.setCoordinates(res.lat, res.lng);
+      })
       .finally(() => setIsLoading(false));
     setLocation("");
   };
+
+  const fetchGranula = async () => {
+    if (topic === "earthquakes") {
+      const res = await getEarthSearchAPI(
+        "/granules.json?echo_collection_id=C179001775-SEDAC"
+      );
+      console.log(res);
+    }
+  };
+
+  useEffect(() => {
+    fetchGranula();
+  }, [params, topic]);
+
+  useEffect(() => {
+    setResults({
+      lat: coordinates.lat,
+      lng: coordinates.lng,
+    });
+  }, [coordinates]);
 
   return (
     <div className="flex flex-col gap-y-4">
