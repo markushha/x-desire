@@ -4,7 +4,7 @@ import { GoogleMap } from "@react-google-maps/api";
 import { useCoordinates } from "@/store/coordinates";
 import { useEffect, useRef, useMemo } from "react";
 import { useGranula } from "@/store/granula";
-import { PolygonType, RectangleType, extractCoordinatesFromBox, extractCoordinatesFromPolygon, getCenter } from "@/lib/coords";
+import { PolygonType, RectangleType, extractCoordinatesFromBox, getCenter, extractCoordinatesFromPolygon } from "@/lib/coords";
 
 export default function Map() {
   const coordinates = useCoordinates();
@@ -51,18 +51,18 @@ export default function Map() {
     if (isBox) {
       new google.maps.Rectangle({
         map: map,
-        bounds: googleBounds as google.maps.LatLngBounds,
+        bounds: googleBounds as google.maps.LatLngBounds as google.maps.LatLngBounds,
         fillColor: "red",
         fillOpacity: 0.1,
       });
     } else {
-      new google.maps.Polygon({
-        map: map,
-        paths: granulaCoords as PolygonType,
-        fillColor: "red",
-        fillOpacity: 0.1,
-      })
-    }
+        new google.maps.Polygon({
+          map: map,
+          paths: granulaCoords as PolygonType,
+          fillColor: "red",
+          fillOpacity: 0.1,
+        })
+      }
   }, [geocoder, coordinates, googleBounds, center, granulaCoords, isBox]);
 
   return (

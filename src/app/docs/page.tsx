@@ -8,7 +8,7 @@ import ResponsiveDocsSidebar from '@/components/docs/responsive-sidebar';
 export default function DocsPage() {
   return (
     <div className="flex">
-      <div className="w-full min-h-screen flex flex-col items-center">
+      <div className="w-full min-h-screen flex flex-col items-center my-16">
         <div className='flex gap-x-2 md:gap-x-4 w-full min-h-full'>
           <ResponsiveDocsSidebar />
           <div className='mx-4 py-4'>

@@ -10,7 +10,7 @@ export default function MapPage({ params }: { params: { topic: string } }) {
 
   return (
     <div className="flex">
-      <div className="w-full min-h-screen flex flex-col items-center">
+      <div className="w-full min-h-screen flex flex-col items-center my-32">
         <div className="w-full my-8 flex flex-col px-4 md:px-8">
           <PageDescription
             className="w-full md:w-1/2"
