@@ -15,7 +15,7 @@ export function Shape({ shape }: ShapeProps) {
     return (
       <div className='flex flex-col gap-2 pl-6'>
         {polygon.map((coords, index) => (
-          <div className='flex gap-1' key={coords.lat}>
+          <div className='flex gap-1' key={index}>
             <span>Point {index + 1}:{' '}</span>
             <span>Latitude - {coords.lat}{' '}</span>
             <span>Longtitude - {coords.lng}</span>

@@ -23,8 +23,8 @@ export default function Map() {
       return getCenter(granulaCoords, isBox);
     } else {
       return {
-        lat: 45,
-        lng: 55,
+        lat: 0,
+        lng: 0,
       }
     }
   }, [granulaCoords, isBox]);
@@ -34,6 +34,7 @@ export default function Map() {
       granulaCoords && isBox
     ) {
       const coords = granulaCoords as RectangleType;
+
       return new google.maps.LatLngBounds(
         new google.maps.LatLng(parseInt(coords?.minLat), parseInt(coords?.maxLat)),
         new google.maps.LatLng(parseInt(coords?.minLng), parseInt(coords?.maxLng as any))
@@ -42,12 +43,12 @@ export default function Map() {
   }, [granulaCoords, isBox]);
 
   const mapRef = useRef(null);
-  const geocoder = useMemo(() => new google.maps.Geocoder(), []);
+  // const geocoder = useMemo(() => new google.maps.Geocoder(), []);
 
   useEffect(() => {
     const map = new google.maps.Map(mapRef.current as any, {
       center: center,
-      zoom: 3,
+      zoom: 2,
     });
 
     if (isBox) {
@@ -66,8 +67,7 @@ export default function Map() {
         })
       }
   // eslint-disable-next-line
-  }, [mapRef, isBox]);
-
+  }, [isBox]);
   return (
     <div className="w-full min-h-screen col-span-3" ref={mapRef}>
       <GoogleMap

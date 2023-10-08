@@ -13,7 +13,7 @@ export default function Earth() {
     },
   };
   return (
-    <div className="w-full col-span-3 flex items-center justify-center md:order-last order-1">
+    <div className="w-full col-span-3 flex items-center justify-center lg:order-last order-1">
       <Lottie isClickToPauseDisabled options={defaultOptions} />
     </div>
   );

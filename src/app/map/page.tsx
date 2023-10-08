@@ -5,6 +5,7 @@ import { GranulaMapContent } from '@/components/granula-map-content';
 import PageDescription from "@/components/page-description";
 import Filters from "@/components/filters";
 import { GranulaDescriptionList } from '@/components/granula-description-list';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "X-Desire | Map",
@@ -16,7 +17,7 @@ export default function MapPage({ params }: { params: { topic: string } }) {
 
   return (
     <div className="flex">
-      <div className="w-full min-h-screen flex flex-col items-center my-32">
+      <div className="w-full min-h-screen flex flex-col items-center my-16">
         <div className="w-full my-8 flex flex-col px-4 md:px-8">
           <PageDescription
             className="w-full md:w-1/2 bg-transparent"
@@ -30,6 +31,7 @@ export default function MapPage({ params }: { params: { topic: string } }) {
             <GranulaDescriptionList className='bg-transparent' />
           </div>
           <Separator className="my-8" />
+          <Link href="/docs#docs-granula" className='mb-4 w-full md:w-1/2 lg:w-1/3 lg:text-base text-xs px-6 py-2 bg-primary hover:opacity-50 transition text-secondary rounded-3xl flex items-center justify-center'>Download this Granula (NASA Earth Data)</Link>
           <GranulaMapContent />
         </div>
       </div>

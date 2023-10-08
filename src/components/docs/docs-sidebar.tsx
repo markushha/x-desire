@@ -1,5 +1,6 @@
 "use client";
 
+import { useGranula } from "@/store/granula";
 import {
   Card,
   CardContent,

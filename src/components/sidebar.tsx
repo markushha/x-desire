@@ -17,7 +17,7 @@ function Sidebar() {
   }
 
   return (
-    <Card className="col-span-1 w-full h-full">
+    <Card className="col-span-1 w-full h-full bg-transparent">
       <CardHeader>
         <CardTitle>Granula Information</CardTitle>
         <CardDescription>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 import { usePathname } from "next/navigation";
+import { Github } from "lucide-react";
 
 const routes = [
   {
@@ -42,6 +43,10 @@ export default function Navbar() {
         </div>
       </div>
       {/* <ModeToggle className="ml-auto" /> */}
+      <Link className="border border-secondary bg-slate-950 flex p-2 cursor-pointer rounded-lg hover:opacity-50 transition" href='https://github.com/markushha/x-desire' target="_blank">
+        <Github className='w-6 h-6 mr-2' />
+        GitHub
+      </Link>
     </div>
   );
 }

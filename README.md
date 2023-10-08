@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div>
+  <h1 align="center">X-DESIRE</h1>
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/94748525/273447401-6c676955-3d4a-4926-977a-1e85e4951d39.png" />
+  <p align="center">
+    <a href="https://x-desire.vercel.app/">Demo</a>
+  </p>
+  <p align="center">
+    <a href="https://x-desire.vercel.app/docs">Documentation</a>
+  </p>
+</div>
+
+## About the project
+
+X-Desire platform was designed with this 3 main aims:
+1) Motivate geologists to use NASA's earth observation data
+2) Show that geology doesnt always require field work 
+3) Enable geologists to collect exact data they need
 
 ## Getting Started
 
-First, run the development server:
+You can start our project via yarn package manager
 
-```bash
-npm run dev
+💻 Terminal 💻
+🐳 Yarn/Npm/Pnpm 🐳
+
+1 - Installation of all dependencies
+yarn install
 # or
+npm install
+# or
+pnpm install
+
+
+2 - Start of development server
 yarn dev
 # or
-pnpm dev
+npm run dev
 # or
-bun dev
-```
+pnpm dev
+
+
+Yep that's easy just like that.
+
+💻 Terminal 💻
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Technologies that were used to develop project <br>
 
-## Learn More
+🦄 Frontend: ReactJS, NextJS, Typescript, Zustand, React Google Map, React-Flow
 
-To learn more about Next.js, take a look at the following resources:
+Technologies that were used to support code quality <br>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🦄 Linters: Eslint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Technologies that were used to check code validity <br>
 
-## Deploy on Vercel
+🦄 CI/CD: Github/Vercel actions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Geolocation: Implementation of geolocation search via user input(country/city) coordinates
+- Interactive Map: Implementation of google interactive map
+- Topic zones: Implementation of topic zones that displayed by user choosen topic
+- CMR Data: Implementation of data display using NASA CMR Api for request of data from [Earthdata](https://search.earthdata.nasa.gov/)
+- Documentation: Implementation of guidance to ensure project use with ease for users
+- Flow Schemes: Addition of schemes via React Flow to visualize granule data
+
+# Team
+
+✨ [Leisan Abzalimova | Leisan](https://t.me/lyaissan7) - UI/UX Designer
+✨ [Mark Inger | Markushha](https://github.com/markushha) - Frontend dev
+✨ [Aukenov Asanali | Asan](https://github.com/AsanX99999) - Backend dev
+✨ [Kenes Nurken | NurkenInc](https://github.com/nurkeninc) - Frontend dev
+<br/>
