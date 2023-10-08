@@ -67,7 +67,7 @@ export default function Map() {
         })
       }
   // eslint-disable-next-line
-  }, [isBox]);
+  }, [isBox, granulaCoords, center, googleBounds]);
   return (
     <div className="w-full min-h-screen col-span-3" ref={mapRef}>
       <GoogleMap

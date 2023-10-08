@@ -56,7 +56,7 @@ export default function Filters({ topic }: { topic: string }) {
     };
   
     fetchGranula();
-  }, [params, topic, granula]);
+  }, [params, topic]);
 
   useEffect(() => {
     setResults({

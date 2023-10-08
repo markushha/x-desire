@@ -31,7 +31,6 @@ export default function MapPage({ params }: { params: { topic: string } }) {
             <GranulaDescriptionList className='bg-transparent' />
           </div>
           <Separator className="my-8" />
-          <Link href="/docs#docs-granula" className='mb-4 w-full md:w-1/2 lg:w-1/3 lg:text-base text-xs px-6 py-2 bg-primary hover:opacity-50 transition text-secondary rounded-3xl flex items-center justify-center'>Download this Granula (NASA Earth Data)</Link>
           <GranulaMapContent />
         </div>
       </div>
