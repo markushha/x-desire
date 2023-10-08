@@ -1,5 +1,11 @@
 .react-flow__node-custom {
-  width: "100px";
-  height: "100px";
   border: 1px solid #555;
+  }
+  .react-flow__node-custom .react-flow__handle {
+    top: 24px;
+    right: -15px;
+    width: 6px;
+    height: 10px;
+    border-radius: 2px;
+    background-color: #778899;
   }

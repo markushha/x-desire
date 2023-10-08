@@ -13,13 +13,13 @@ import ReactFlow, {
 import 'reactflow/dist/style.css';
 
 const initialNodes = [
-  { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },
+  { id: '1', position: { x: 0, y: 0 }, data: { label: 'ECHO granule metadata' } },
   { id: '2', position: { x: 0, y: 100 }, data: { label: '2' } },
   {
     id: "4",
     type: "custom",
     data: { label: "Custom Node" },
-    position: { x: 400, y: 200 }
+    position: { x: 300, y: -200 }
   },
 ];
 
