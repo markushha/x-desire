@@ -35,15 +35,15 @@ const items: SidebarItem[] = [
 
 function DocsSidebar() {
   return (
-    <Card className="col-span-1 w-[300px] min-h-full">
+    <Card className="col-span-1 bg-transparent w-[300px] min-h-full">
       <CardHeader>
         <CardTitle>X-Desire Docs</CardTitle>
       </CardHeader>
-      <CardContent className='h-[calc(100vh-100px)]'>
-        <div className='max-h-full pr-6'>
+      <CardContent className=''>
+        <div className='max-h-full'>
           <ul>
             {items.map((item) => (
-              <li className='w-full p-2 my-2 mx-2' key={item.label}>
+              <li className='w-full my-5 text-base md:text-lg text-primary font-medium hover:text-primary/70' key={item.label}>
                 <Link href={item.path}>{item.label}</Link>
               </li>
             ))}

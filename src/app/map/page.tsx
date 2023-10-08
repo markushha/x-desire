@@ -19,7 +19,7 @@ export default function MapPage({ params }: { params: { topic: string } }) {
       <div className="w-full min-h-screen flex flex-col items-center my-32">
         <div className="w-full my-8 flex flex-col px-4 md:px-8">
           <PageDescription
-            className="w-full md:w-1/2"
+            className="w-full md:w-1/2 bg-transparent"
             title="X-Desire Map: Access Geological Data"
             description="Search geological information using related topics by any location or coordinates. We use NASA Earthdata Search for accessing data."
           />
