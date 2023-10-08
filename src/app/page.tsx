@@ -1,8 +1,15 @@
 "use client";
 
 import axios from "axios";
+import Flowchart from "./flowchart";
+import "./styles.css";
+
+
 
 export default function Home() {
+    
+    
+
   const json = axios.post("/api/convert-xml", {
     xml: `<results>
         <hits>52823</hits>
@@ -77,7 +84,10 @@ export default function Home() {
   })
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center justify-between">        
+        <Flowchart />
     </main>
+
+    
   );
 }
