@@ -63,7 +63,7 @@ export default function Map() {
           fillOpacity: 0.1,
         })
       }
-  }, [geocoder, coordinates, googleBounds, center, granulaCoords, isBox]);
+  }, [geocoder, coordinates, googleBounds, center, granulaCoords]);
 
   return (
     <div className="w-full min-h-screen col-span-3" ref={mapRef}>

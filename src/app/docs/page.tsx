@@ -1,9 +1,15 @@
+import { Metadata } from 'next';
 import Hero from '@/components/docs/hero';
 import Introduction from '@/components/docs/introduction';
 import KeyFeatures from '@/components/docs/features';
 import { Vision } from '@/components/docs/vision';
 import { Separator } from "@/components/ui/separator";
 import ResponsiveDocsSidebar from '@/components/docs/responsive-sidebar';
+
+export const metadata: Metadata = {
+  title: "X-Desire | Docs",
+  description: "X-Desire docs learn how to use x-desire for earth data",
+};
 
 export default function DocsPage() {
   return (
