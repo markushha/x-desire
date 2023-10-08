@@ -5,6 +5,8 @@ import KeyFeatures from '@/components/docs/features';
 import { Vision } from '@/components/docs/vision';
 import { Separator } from "@/components/ui/separator";
 import ResponsiveDocsSidebar from '@/components/docs/responsive-sidebar';
+import Granula from '@/components/docs/granula';
+import './styles.css';
 
 export const metadata: Metadata = {
   title: "X-Desire | Docs",
@@ -21,6 +23,8 @@ export default function DocsPage() {
             <Hero />
             <Separator className='my-4' />
             <Introduction />
+            <Separator className='my-4' />
+            <Granula />
             <Separator className='my-4' />
             <KeyFeatures />
             <Separator className='my-4' />
