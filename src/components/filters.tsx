@@ -36,25 +36,27 @@ export default function Filters({ topic }: { topic: string }) {
     setLocation("");
   };
 
-  const fetchGranula = async () => {
-    const currentTopic = topic ?? params.get("topic");
-    if (!currentTopic) return;
 
-    const topicData = topics.find((topic) => topic.value === currentTopic);
-    if (!topicData) return;
-
-    try {
-      const res = await getEarthSearchAPI<Granula>(topicData.granulaUrl);
-
-      granula.setGranula(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   useEffect(() => {
+    const fetchGranula = async () => {
+      const currentTopic = topic ?? params.get("topic");
+      if (!currentTopic) return;
+  
+      const topicData = topics.find((topic) => topic.value === currentTopic);
+      if (!topicData) return;
+  
+      try {
+        const res = await getEarthSearchAPI<Granula>(topicData.granulaUrl);
+  
+        granula.setGranula(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  
     fetchGranula();
-  }, [params, topic]);
+  }, [params, topic, granula]);
 
   useEffect(() => {
     setResults({

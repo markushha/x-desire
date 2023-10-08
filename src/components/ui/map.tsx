@@ -26,7 +26,7 @@ export default function Map() {
         lng: 55,
       }
     }
-  }, [granulaCoords]);
+  }, [granulaCoords, isBox]);
 
   const googleBounds = useMemo(() => {
     if (
