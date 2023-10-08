@@ -8,6 +8,7 @@ import { PolygonType, RectangleType, extractCoordinatesFromBox, getCenter, extra
 
 export default function Map() {
   const coordinates = useCoordinates();
+  
   const granula = useGranula();
   const isBox = granula.granula?.feed.entry[0].boxes ? true : false;
 
@@ -48,6 +49,7 @@ export default function Map() {
       center: center,
       zoom: 3,
     });
+
     if (isBox) {
       new google.maps.Rectangle({
         map: map,
@@ -63,7 +65,8 @@ export default function Map() {
           fillOpacity: 0.1,
         })
       }
-  }, [geocoder, coordinates, googleBounds, center, granulaCoords]);
+  // eslint-disable-next-line
+  }, [mapRef, isBox]);
 
   return (
     <div className="w-full min-h-screen col-span-3" ref={mapRef}>
