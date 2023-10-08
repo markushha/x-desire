@@ -27,7 +27,7 @@ export default function MapPage({ params }: { params: { topic: string } }) {
             <label className="text-xl md:text-2xl font-semibold">Search</label>
             <Separator className="my-4" />
             <Filters topic={topic} />
-            <GranulaDescriptionList className='' />
+            <GranulaDescriptionList className='bg-transparent' />
           </div>
           <Separator className="my-8" />
           <GranulaMapContent />

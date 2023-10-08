@@ -24,6 +24,10 @@ const items: SidebarItem[] = [
     path: '/docs/#docs-intro',
   },
   {
+    label: 'Granule',
+    path: '/docs/#docs-granula',
+  },
+  {
     label: 'Key Features',
     path: '/docs/#docs-features',
   },
