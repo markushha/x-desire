@@ -1,9 +1,15 @@
+import { Metadata } from 'next';
 import { Separator } from "@/components/ui/separator";
 
 import { GranulaMapContent } from '@/components/granula-map-content';
 import PageDescription from "@/components/page-description";
 import Filters from "@/components/filters";
 import { GranulaDescriptionList } from '@/components/granula-description-list';
+
+export const metadata: Metadata = {
+  title: "X-Desire | Map",
+  description: "X-Desire access NASA data using our interactive map",
+};
 
 export default function MapPage({ params }: { params: { topic: string } }) {
   const topic = params["topic"] ?? null;
