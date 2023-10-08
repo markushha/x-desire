@@ -1,11 +1,63 @@
 .react-flow__node-custom {
   border: 1px solid #555;
   }
-  .react-flow__node-custom .react-flow__handle {
-    top: 24px;
-    right: -15px;
-    width: 6px;
-    height: 10px;
+
+
+  
+  .react-flow__node-custom2 {
+    font-size: 12px;
+    width: 160px;
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 15%), 0 2px 4px -1px rgb(0 0 0 / 8%);
     border-radius: 2px;
-    background-color: #778899;
+    text-decoration-color: black;
+    border-radius: 4%;
+  }  
+  .custom-node__header2 {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .custom-node__body2 {
+    padding: 10px;
+  }
+  
+
+  .react-flow__node-custom3 {
+    font-size: 12px;
+    width: 160px;
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 15%), 0 2px 4px -1px rgb(0 0 0 / 8%);
+    border-radius: 2px;
+    text-decoration-color: black;
+    border-radius: 4%;
+  }  
+  .custom-node__header3{
+    padding: 8px 10px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .custom-node__body3 {
+    padding: 10px;
+  }
+  
+  .react-flow__node-custom4 {
+    font-size: 12px;
+    width: 160px;
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 15%), 0 2px 4px -1px rgb(0 0 0 / 8%);
+    border-radius: 2px;
+    text-decoration-color: black;
+    border-radius: 4%;
+  }  
+  .custom-node__header4 {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .custom-node__body4 {
+    padding: 10px;
   }
