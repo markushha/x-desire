@@ -5,6 +5,7 @@ import MapComponent from "@/components/map";
 import { Handle, NodeProps, Position } from "reactflow";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api"; // Import Google Map components
 
+const key = process.env.NEXT_PUBLIC_GOOGLEMAP_KEY!;
 const CustomNode = ({
   data,
   isConnectable,
@@ -16,7 +17,7 @@ const CustomNode = ({
     <>
 
       <div style={{ width: "500px", height: "500px" }}>
-        <LoadScript googleMapsApiKey="AIzaSyASO95vCcQNQrzr0lERusMhR62QUjEMxB0">
+        <LoadScript googleMapsApiKey={key}>
           <GoogleMap
             // mapContainerStyle={{ width: "200px", height: "200px" }}
             center={position}
