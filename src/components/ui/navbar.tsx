@@ -10,6 +10,10 @@ const routes = [
     label: "Map",
     path: "/map",
   },
+  {
+    label: "Docs",
+    path: "/docs",
+  },
 ];
 
 export default function Navbar() {
@@ -29,7 +33,7 @@ export default function Navbar() {
         <div className="ml-4 flex items-center text-sm">
           {routes.map((route) => (
             <Link
-              className={cn("text-primary/60 hover:text-primary", fullUrl.split(domain)[1] === route.path && "text-primary")}
+              className={cn("text-primary/60 hover:text-primary mx-2", fullUrl.split(domain)[1] === route.path && "text-primary")}
               href={route.path}
               key={route.path}
             >
