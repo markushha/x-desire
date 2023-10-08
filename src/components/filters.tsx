@@ -73,6 +73,7 @@ export default function Filters({ topic }: { topic: string }) {
           <Input
             disabled={isLoading}
             value={location}
+            className="bg-transparent"
             onChange={(e) => setLocation(e.target.value)}
             placeholder="Search by country, city, or region"
           />
@@ -88,6 +89,7 @@ export default function Filters({ topic }: { topic: string }) {
         <div className="flex gap-x-4 items-center justify-center mt-2">
           <Input
             type="number"
+            className="bg-transparent"
             placeholder="Latitude"
             onChange={(e) =>
               setResults({
@@ -100,6 +102,7 @@ export default function Filters({ topic }: { topic: string }) {
           />
           <Input
             type="number"
+            className="bg-transparent"
             placeholder="Longitude"
             onChange={(e) =>
               setResults({
@@ -116,7 +119,7 @@ export default function Filters({ topic }: { topic: string }) {
         <label>Filter by topics</label>
         <div className="flex flex-wrap gap-2 flex-row mt-2">
           {topics.map((topic) => (
-            <ParamLink className="mr-2" key={topic.value} link={topic} paramName='topic' />
+            <ParamLink className="mr-2 bg-transparent" key={topic.value} link={topic} paramName='topic' />
           ))}
         </div>
       </div>
