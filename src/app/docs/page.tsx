@@ -14,16 +14,16 @@ export const metadata: Metadata = {
 export default function DocsPage() {
   return (
     <div className="flex">
-      <div className="w-full min-h-screen flex flex-col items-center my-16">
+      <div className="w-full min-h-screen flex flex-col items-center my-32 px-4 md:px-8">
         <div className='flex gap-x-2 md:gap-x-4 w-full min-h-full'>
           <ResponsiveDocsSidebar />
           <div className='mx-4 py-4'>
             <Hero />
-            <Separator className='my-4' />
+            <Separator className='my-8' />
             <Introduction />
-            <Separator className='my-4' />
+            <Separator className='my-8' />
             <KeyFeatures />
-            <Separator className='my-4' />
+            <Separator className='my-8' />
             <Vision />
           </div>
         </div>
