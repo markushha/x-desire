@@ -5,6 +5,8 @@ import { Inter } from "next/font/google";
 
 import Navbar from "@/components/ui/navbar";
 import { ThemeProvider } from "@/providers/theme-provider";
+import Footer from "@/components/ui/footer";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,15 +22,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={cn("bg-gradient-to-r from-gray-900 via-gray-950 to-black", inter.className)}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          forcedTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

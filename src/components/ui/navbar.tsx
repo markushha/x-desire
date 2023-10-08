@@ -18,7 +18,7 @@ export default function Navbar() {
   const fullUrl = headersList.get("referer") || "";
   
   return (
-    <div className="z-10 backdrop-blur-2xl w-full sticky top-0 flex items-center border-b border-secondary bg-background/70 px-4 md:px-8 py-4">
+    <div className="z-10 backdrop-blur-lg w-full fixed top-0 flex items-center border-b border-secondary bg-transparent px-4 md:px-8 py-4">
       <div className="mr-auto flex items-center">
         <Link
           href="/"
@@ -38,7 +38,7 @@ export default function Navbar() {
           ))}
         </div>
       </div>
-      <ModeToggle className="ml-auto" />
+      {/* <ModeToggle className="ml-auto" /> */}
     </div>
   );
 }
