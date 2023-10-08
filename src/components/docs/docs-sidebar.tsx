@@ -7,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { useGranula } from "@/store/granula";
 import Link from 'next/link';
 
 type SidebarItem = {
