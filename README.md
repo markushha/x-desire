@@ -1,6 +1,6 @@
 
   # 🚀 X-DESIRE&nbsp;
-  ### User-Friendly Feological Platform Built for researchers, students & geologists using NASA Eart Data 
+  ### User-Friendly Geological Platform Built for researchers, students & geologists using NASA Eart Data 
   <div>
   <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/94748525/273447401-6c676955-3d4a-4926-977a-1e85e4951d39.png" />
   
